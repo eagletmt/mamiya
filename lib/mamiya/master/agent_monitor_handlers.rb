@@ -82,6 +82,10 @@ module Mamiya
         status['releases'][task['app']].uniq!
       end
 
+      def task___remove__finish(status, task)
+        refresh # ThreadError: deadlock; recursive locking
+      end
+
       def pkg__remove(status, payload, event)
         status['packages'] ||= {}
         packages = status['packages'][payload['application']]

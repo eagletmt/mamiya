@@ -1,9 +1,9 @@
-require 'mamiya/agent/tasks/abstract'
+require 'mamiya/agent/tasks/notifyable'
 
 module Mamiya
   class Agent
     module Tasks
-      class Remove < Abstract
+      class Remove < Notifyable
         def run
           release_path = config.deploy_to_for(application).join('releases', package)
           logger.info "Removing package #{package} from releases (app=#{application})"
